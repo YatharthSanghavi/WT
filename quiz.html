@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Which Indian Destination Suits You?</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Basic internal CSS for quiz.html, scoped to .quiz-box */
+        .quiz-box .container {
+            max-width: 700px;
+            margin: 2rem auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+            padding: 2rem 2.5rem;
+        }
+        .quiz-box h1 {
+            color: #0d47a1;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .quiz-box .question {
+            margin-bottom: 2rem;
+        }
+        .quiz-box .question h3 {
+            font-size: 1.2rem;
+            color: #2e7d32;
+            margin-bottom: 1rem;
+        }
+        .quiz-box .option {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .quiz-box .option input[type="radio"] {
+            margin-right: 0.5rem;
+        }
+        .quiz-box .submit-btn {
+            background: #ff6f00;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 32px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 1rem;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .quiz-box .submit-btn:hover {
+            background: #fb8c00;
+        }
+        .quiz-box .error {
+            color: #d32f2f;
+            font-weight: 600;
+            margin-top: 1rem;
+            text-align: center;
+        }
+        .quiz-box .result {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            border-radius: 10px;
+            background: #e3f2fd;
+            text-align: center;
+            font-size: 1.1rem;
+            box-shadow: 0 2px 10px rgba(13,71,161,0.06);
+        }
+        .quiz-box .result.rajasthan { border-left: 6px solid #0d47a1; }
+        .quiz-box .result.goa { border-left: 6px solid #ff6f00; }
+        .quiz-box .result.kerala { border-left: 6px solid #2e7d32; }
+        .quiz-box .result.himachal { border-left: 6px solid #1565c0; }
+        @media (max-width: 600px) {
+            .quiz-box .container {
+                padding: 1rem 0.5rem;
+            }
+            .quiz-box h1 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+    </head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fas fa-map-marked-alt me-2"></i>Incredible India
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="destinations.html">Destinations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="quiz-box">
+        <div class="container">
+            <h1>Which Indian Destination Suits Your Personality?</h1>
+            
+            <form id="quizForm">
+                <div class="question">
+                    <h3>1. What type of vacation do you prefer?</h3>
+                    <div class="option">
+                        <input type="radio" name="q1" value="adventure" id="q1a">
+                        <label for="q1a">Adventure and exploration</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q1" value="relaxation" id="q1b">
+                        <label for="q1b">Beach and relaxation</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q1" value="culture" id="q1c">
+                        <label for="q1c">History and culture</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q1" value="nature" id="q1d">
+                        <label for="q1d">Nature and tranquility</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <h3>2. What's your ideal climate?</h3>
+                    <div class="option">
+                        <input type="radio" name="q2" value="hot" id="q2a">
+                        <label for="q2a">Hot and sunny</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" value="tropical" id="q2b">
+                        <label for="q2b">Warm and tropical</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" value="cool" id="q2c">
+                        <label for="q2c">Cool and pleasant</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" value="cold" id="q2d">
+                        <label for="q2d">Cold and crisp</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <h3>3. Which activity excites you most?</h3>
+                    <div class="option">
+                        <input type="radio" name="q3" value="palace" id="q3a">
+                        <label for="q3a">Visiting ancient palaces and forts</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q3" value="water" id="q3b">
+                        <label for="q3b">Water sports and beach activities</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q3" value="boat" id="q3c">
+                        <label for="q3c">Boat rides and backwater cruises</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q3" value="mountain" id="q3d">
+                        <label for="q3d">Mountain trekking and skiing</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <h3>4. What type of food do you enjoy?</h3>
+                    <div class="option">
+                        <input type="radio" name="q4" value="spicy" id="q4a">
+                        <label for="q4a">Spicy and rich flavors</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q4" value="seafood" id="q4b">
+                        <label for="q4b">Fresh seafood</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q4" value="coconut" id="q4c">
+                        <label for="q4c">Coconut-based dishes</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q4" value="simple" id="q4d">
+                        <label for="q4d">Simple, hearty meals</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <h3>5. What's your travel style?</h3>
+                    <div class="option">
+                        <input type="radio" name="q5" value="royal" id="q5a">
+                        <label for="q5a">Luxury and royal experiences</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q5" value="party" id="q5b">
+                        <label for="q5b">Nightlife and parties</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q5" value="peaceful" id="q5c">
+                        <label for="q5c">Peaceful and spiritual</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q5" value="active" id="q5d">
+                        <label for="q5d">Active and sporty</label>
+                    </div>
+                </div>
+
+                <button type="button" class="submit-btn" onclick="calculateResult()">Find My Destination!</button>
+            </form>
+
+            <div id="errorMessage" class="error"></div>
+            <div id="result" class="result"></div>
+        </div>
+    </div>
+
+    <script>
+        function calculateResult() {
+            const form = document.getElementById('quizForm');
+            const formData = new FormData(form);
+            const errorDiv = document.getElementById('errorMessage');
+            const resultDiv = document.getElementById('result');
+            
+            // Clear previous messages
+            errorDiv.innerHTML = '';
+            resultDiv.style.display = 'none';
+            
+            // Check if all questions are answered
+            const questions = ['q1', 'q2', 'q3', 'q4', 'q5'];
+            for (let q of questions) {
+                if (!formData.get(q)) {
+                    errorDiv.innerHTML = 'Please answer all questions!';
+                    return;
+                }
+            }
+            
+            // Count scores for each destination
+            let scores = {
+                rajasthan: 0,
+                goa: 0,
+                kerala: 0,
+                himachal: 0
+            };
+            
+            // Question 1 scoring
+            const q1 = formData.get('q1');
+            if (q1 === 'culture') scores.rajasthan += 2;
+            if (q1 === 'relaxation') scores.goa += 2;
+            if (q1 === 'nature') scores.kerala += 2;
+            if (q1 === 'adventure') scores.himachal += 2;
+            
+            // Question 2 scoring
+            const q2 = formData.get('q2');
+            if (q2 === 'hot') scores.rajasthan += 2;
+            if (q2 === 'tropical') scores.goa += 2;
+            if (q2 === 'cool') scores.kerala += 2;
+            if (q2 === 'cold') scores.himachal += 2;
+            
+            // Question 3 scoring
+            const q3 = formData.get('q3');
+            if (q3 === 'palace') scores.rajasthan += 2;
+            if (q3 === 'water') scores.goa += 2;
+            if (q3 === 'boat') scores.kerala += 2;
+            if (q3 === 'mountain') scores.himachal += 2;
+            
+            // Question 4 scoring
+            const q4 = formData.get('q4');
+            if (q4 === 'spicy') scores.rajasthan += 1;
+            if (q4 === 'seafood') scores.goa += 1;
+            if (q4 === 'coconut') scores.kerala += 1;
+            if (q4 === 'simple') scores.himachal += 1;
+            
+            // Question 5 scoring
+            const q5 = formData.get('q5');
+            if (q5 === 'royal') scores.rajasthan += 2;
+            if (q5 === 'party') scores.goa += 2;
+            if (q5 === 'peaceful') scores.kerala += 2;
+            if (q5 === 'active') scores.himachal += 2;
+            
+            // Find the destination with highest score
+            let maxScore = 0;
+            let destination = '';
+            
+            for (let place in scores) {
+                if (scores[place] > maxScore) {
+                    maxScore = scores[place];
+                    destination = place;
+                }
+            }
+            
+            // Display result
+            showResult(destination);
+        }
+        
+        function showResult(destination) {
+            const resultDiv = document.getElementById('result');
+            let resultText = '';
+            let resultClass = '';
+            
+            switch (destination) {
+                case 'rajasthan':
+                    resultText = '<h2>🏰 RAJASTHAN 🏰</h2><p>You are drawn to history, culture, and royal experiences! Rajasthan with its magnificent palaces, colorful culture, and rich heritage is perfect for you. Visit Jaipur, Udaipur, and Jaisalmer!</p>';
+                    resultClass = 'rajasthan';
+                    break;
+                    
+                case 'goa':
+                    resultText = '<h2>🏖️ GOA 🏖️</h2><p>You love beaches, relaxation, and good times! Goa with its beautiful beaches, vibrant nightlife, and laid-back vibe is your ideal destination. Enjoy the sun, sand, and sea!</p>';
+                    resultClass = 'goa';
+                    break;
+                    
+                case 'kerala':
+                    resultText = '<h2>🌴 KERALA 🌴</h2><p>You appreciate nature, tranquility, and spiritual experiences! Kerala\'s backwaters, hill stations, and peaceful atmosphere make it God\'s Own Country for you. Experience the houseboats and Ayurveda!</p>';
+                    resultClass = 'kerala';
+                    break;
+                    
+                case 'himachal':
+                    resultText = '<h2>🏔️ HIMACHAL PRADESH 🏔️</h2><p>You are an adventure seeker who loves mountains and cool weather! Himachal Pradesh with its snow-capped peaks, adventure sports, and hill stations like Shimla and Manali awaits you!</p>';
+                    resultClass = 'himachal';
+                    break;
+                    
+                default:
+                    resultText = '<h2>🇮🇳 ALL OF INDIA! 🇮🇳</h2><p>You have diverse interests! India has something for everyone. Consider visiting multiple destinations to experience the full diversity of this incredible country!</p>';
+                    resultClass = 'goa';
+            }
+            
+            resultDiv.innerHTML = resultText;
+            resultDiv.className = 'result ' + resultClass;
+            resultDiv.style.display = 'block';
+            
+            // Scroll to result
+            resultDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
